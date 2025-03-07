@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMV Super App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                     onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/logo.png') }}'"
+                     alt="SMV Logo" class="logo">
+            </div>
+            <div class="title-container">
+                <h1>SMV Super App</h1>
+                <p class="subtitle">by SMV Green Solutions Private Limited</p>
+            </div>
+        </div>
+        <div class="header-info">
+            <div class="date-time" id="current-datetime">Loading date and time...</div>
+            <div class="customer-name">Welcome, <span id="customer-name">Driver</span></div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="dashboard">
+            <div class="dashboard-section">
+                <h2>Vehicle Status</h2>
+                <div class="status-item">
+                    <span class="label">Battery:</span>
+                    <span class="value">93%</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Vehicle Number:</span>
+                    <span class="value">UP32 BZ 5678</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Last Service:</span>
+                    <span class="value">10 June 2024</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Next Service:</span>
+                    <span class="value">10 December 2024</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Driver Rating:</span>
+                    <span class="value">4.5</span>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h2>Current Location</h2>
+                <div id="current-location">Loading...</div>
+                <div id="location-map"></div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h2>Nearby Places</h2>
+                <div class="nearby-place">
+                    <span class="place-icon">🏫</span>
+                    <span class="place-name" id="nearest-school">Loading...</span>
+                    <span class="place-distance" id="school-distance"></span>
+                </div>
+                <div class="nearby-place">
+                    <span class="place-icon">🚌</span>
+                    <span class="place-name" id="nearest-bus-stand">Loading...</span>
+                    <span class="place-distance" id="bus-distance"></span>
+                </div>
+                <div class="nearby-place">
+                    <span class="place-icon">🏬</span>
+                    <span class="place-name" id="nearest-mall">Loading...</span>
+                    <span class="place-distance" id="mall-distance"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 SMV Green Solutions Private Limited. All rights reserved.</p>
+    </footer>
+    
+    <!-- Chat Component -->
+    <div class="chat-container">
+        <button id="open-chat" class="chat-button">💬</button>
+        
+        <div id="chat-window" class="chat-window">
+            <div class="chat-header">
+                <h3>SMV E-rickshaw Assistant</h3>
+                <button id="close-chat" class="close-button">×</button>
+            </div>
+            
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will be inserted here -->
+            </div>
+            
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="message-input" placeholder="Type your message here..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    
+    <script>
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('current-datetime').textContent = now.toLocaleDateString('en-IN', options);
+        }
+        
+        // Update customer name (placeholder - would normally come from backend)
+        function setCustomerName() {
+            document.getElementById('customer-name').textContent = "Rahul Kumar";
+        }
+        
+        // Run on page load
+        updateDateTime();
+        setCustomerName();
+        
+        // Update date/time every second
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html> 

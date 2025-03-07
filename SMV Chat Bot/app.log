@@ -1,0 +1,1305 @@
+2025-03-07 13:38:53,271 - __main__ - INFO - aifc module is available.
+2025-03-07 13:38:53,277 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 13:44:33,969 - __main__ - INFO - aifc module is available.
+2025-03-07 13:44:33,977 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 13:44:33,982 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 13:44:33,982 - __main__ - INFO - Successfully created test model
+2025-03-07 13:44:34,006 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 13:44:34,006 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 13:44:42,206 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "GET / HTTP/1.1" 200 -
+2025-03-07 13:44:42,435 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 13:44:42,444 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 13:44:42,445 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 13:44:42,445 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 13:44:42,446 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 13:44:42,451 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "[33mGET /static/images/logo-sm.png HTTP/1.1[0m" 404 -
+2025-03-07 13:44:42,451 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "[33mGET /static/images/chat-icon.png HTTP/1.1[0m" 404 -
+2025-03-07 13:44:42,454 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 13:44:42,454 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:42] "[33mGET /static/images/send-icon.png HTTP/1.1[0m" 404 -
+2025-03-07 13:44:50,719 - app.routes - INFO - [2025-03-07 13:44:50] Chat request from session_iajlozh9tz: hi
+2025-03-07 13:44:51,326 - app.helpers.llm - ERROR - Error getting LLM response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/llm.py", line 51, in get_llm_response
+    chat.send_message(system_prompt)
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 358, in send_message
+    response = self.model.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 243, in generate_content
+    response = self._client.generate_content(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 566, in generate_content
+    response = rpc(
+               ^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 13:44:51,335 - app.helpers.tts - ERROR - Error generating TTS: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 43, in generate_tts
+    text = clean_text_for_tts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 13, in clean_text_for_tts
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # Bold
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+2025-03-07 13:44:51,337 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:51] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 13:44:56,530 - app.routes - INFO - [2025-03-07 13:44:56] Chat request from session_iajlozh9tz: how are you
+2025-03-07 13:44:56,534 - app.helpers.llm - INFO - Sending message to Gemini: User Query: how are you
+
+Remember to check the dashboard:
+- Battery: 93%
+- Vehicle: UP32 BZ 5678
+- L...
+2025-03-07 13:44:56,866 - app.helpers.llm - ERROR - Error getting LLM response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/llm.py", line 64, in get_llm_response
+    response = chat.send_message(enhanced_message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 358, in send_message
+    response = self.model.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 243, in generate_content
+    response = self._client.generate_content(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 566, in generate_content
+    response = rpc(
+               ^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 13:44:56,868 - app.helpers.tts - ERROR - Error generating TTS: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 43, in generate_tts
+    text = clean_text_for_tts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 13, in clean_text_for_tts
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # Bold
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+2025-03-07 13:44:56,869 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:44:56] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 13:49:29,466 - __main__ - INFO - aifc module is available.
+2025-03-07 13:49:29,473 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 13:49:29,476 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 13:49:29,476 - __main__ - INFO - Successfully created test model
+2025-03-07 13:49:29,494 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 13:49:29,494 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 13:49:37,306 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "GET / HTTP/1.1" 200 -
+2025-03-07 13:49:37,337 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 13:49:37,342 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "[33mGET /static/images/chat.png HTTP/1.1[0m" 404 -
+2025-03-07 13:49:37,348 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 13:49:37,350 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 13:49:37,350 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 13:49:37,350 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 13:49:37,353 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "[33mGET /static/images/send.png HTTP/1.1[0m" 404 -
+2025-03-07 13:49:37,376 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 13:49:37,381 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:37] "[33mGET /static/images/chat.png HTTP/1.1[0m" 404 -
+2025-03-07 13:49:54,028 - app.routes - INFO - [2025-03-07 13:49:54] Chat request from session_lcg1qvfleos: hey there
+2025-03-07 13:49:55,986 - app.helpers.llm - ERROR - Error getting LLM response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/llm.py", line 51, in get_llm_response
+    chat.send_message(system_prompt)
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 358, in send_message
+    response = self.model.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 243, in generate_content
+    response = self._client.generate_content(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 566, in generate_content
+    response = rpc(
+               ^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 13:49:55,997 - app.helpers.tts - ERROR - Error generating TTS: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 43, in generate_tts
+    text = clean_text_for_tts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 13, in clean_text_for_tts
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # Bold
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+2025-03-07 13:49:55,999 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 13:49:55] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 13:54:19,360 - __main__ - INFO - aifc module is available.
+2025-03-07 13:54:19,368 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 13:54:19,370 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 13:54:19,370 - __main__ - INFO - Successfully created test model
+2025-03-07 13:54:19,386 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 13:54:19,386 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 13:54:26,281 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "GET / HTTP/1.1" 200 -
+2025-03-07 13:54:26,308 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-03-07 13:54:26,309 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-03-07 13:54:26,310 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "[36mGET /static/images/smv-logo.png HTTP/1.1[0m" 304 -
+2025-03-07 13:54:26,310 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 13:54:26,343 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 13:54:26,344 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 13:54:26,344 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:26] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 13:54:27,237 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-07 13:54:40,186 - app.routes - INFO - [2025-03-07 13:54:40] Chat request from session_4r3tvhc3on: hello
+2025-03-07 13:54:42,077 - app.helpers.llm - ERROR - Error getting LLM response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/llm.py", line 51, in get_llm_response
+    chat.send_message(system_prompt)
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 358, in send_message
+    response = self.model.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 243, in generate_content
+    response = self._client.generate_content(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 566, in generate_content
+    response = rpc(
+               ^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 13:54:42,196 - app.helpers.tts - ERROR - Error generating TTS: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 43, in generate_tts
+    text = clean_text_for_tts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 13, in clean_text_for_tts
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # Bold
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+2025-03-07 13:54:42,202 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 13:54:42] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:00:27,146 - __main__ - INFO - aifc module is available.
+2025-03-07 14:00:27,154 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:00:27,156 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:00:27,156 - __main__ - INFO - Successfully created test model
+2025-03-07 14:00:27,168 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 14:00:27,168 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 14:00:34,604 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:00:34] "GET / HTTP/1.1" 200 -
+2025-03-07 14:00:34,625 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:00:34] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 14:00:34,625 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:00:34] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 14:00:34,626 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:00:34] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 14:00:34,626 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:00:34] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 14:01:00,030 - app.routes - INFO - [2025-03-07 14:01:00] Chat request from session_qw8cpqczct: hi
+2025-03-07 14:01:01,891 - app.helpers.llm - ERROR - Error getting LLM response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/llm.py", line 51, in get_llm_response
+    chat.send_message(system_prompt)
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 358, in send_message
+    response = self.model.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/generativeai/generative_models.py", line 243, in generate_content
+    response = self._client.generate_content(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 566, in generate_content
+    response = rpc(
+               ^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 14:01:01,901 - app.helpers.tts - ERROR - Error generating TTS: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 43, in generate_tts
+    text = clean_text_for_tts(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app/helpers/tts.py", line 13, in clean_text_for_tts
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # Bold
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/re/__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+2025-03-07 14:01:01,903 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:01:01] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:07:26,153 - __main__ - INFO - aifc module is available.
+2025-03-07 14:07:26,162 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:07:26,165 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:07:26,165 - __main__ - INFO - Successfully created test model
+2025-03-07 14:07:28,070 - __main__ - ERROR - ❌ Gemini API self-test failed with error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 14:08:14,593 - __main__ - INFO - aifc module is available.
+2025-03-07 14:08:14,600 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:08:14,603 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:08:14,603 - __main__ - INFO - Successfully created test model
+2025-03-07 14:08:16,419 - __main__ - ERROR - ❌ Gemini API self-test failed with error: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-03-07 14:11:05,570 - __main__ - INFO - aifc module is available.
+2025-03-07 14:11:05,577 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:11:05,579 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:11:05,579 - __main__ - INFO - Successfully created test model
+2025-03-07 14:11:07,596 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 14:14:13,232 - __main__ - INFO - aifc module is available.
+2025-03-07 14:14:13,240 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:14:13,243 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:14:13,243 - __main__ - INFO - Successfully created test model
+2025-03-07 14:14:15,222 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 14:16:28,951 - __main__ - INFO - aifc module is available.
+2025-03-07 14:16:28,960 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:16:28,962 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:16:28,962 - __main__ - INFO - Successfully created test model
+2025-03-07 14:16:30,943 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 14:19:47,128 - __main__ - INFO - aifc module is available.
+2025-03-07 14:19:47,137 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:19:47,137 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:19:47,137 - __main__ - INFO - Successfully created test model
+2025-03-07 14:19:49,142 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 14:19:49,169 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 14:19:49,169 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 14:19:49,210 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 14:19:49,599 - __main__ - INFO - aifc module is available.
+2025-03-07 14:19:49,602 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 14:19:49,603 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 14:19:49,603 - __main__ - INFO - Successfully created test model
+2025-03-07 14:19:51,616 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 14:19:51,621 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 14:19:51,636 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 14:19:54,672 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:19:54] "GET / HTTP/1.1" 200 -
+2025-03-07 14:19:54,680 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:19:54] "[33mGET /static/js/map.js HTTP/1.1[0m" 404 -
+2025-03-07 14:19:54,681 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:19:54] "[33mGET /static/css/main.css HTTP/1.1[0m" 404 -
+2025-03-07 14:19:54,689 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:19:54] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 14:19:54,689 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:19:54] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 14:20:11,373 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_9m2wzlojpha
+2025-03-07 14:20:11,373 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:20:11,374 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:20:12,473 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+How can I help you with your e-rickshaw today?
+
+**CURR...
+2025-03-07 14:20:12,475 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. How c...
+2025-03-07 14:20:17,992 - __main__ - INFO - Generated audio URL: audio/cache/3135b709f7db13a4a7409c656bfe2421.mp3
+2025-03-07 14:20:17,995 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:20:17] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:20:18,123 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:20:18] "[33mGET /audio/cache/3135b709f7db13a4a7409c656bfe2421.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 14:20:33,227 - __main__ - INFO - Chat endpoint called with message: 'I have issue with my battery', session_id: session_9m2wzlojpha
+2025-03-07 14:20:33,229 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:20:33,229 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:20:34,550 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+Regarding your battery issue, can you please provide m...
+2025-03-07 14:20:34,551 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. Regar...
+2025-03-07 14:20:45,062 - __main__ - INFO - Generated audio URL: audio/cache/e3ec66eaeceadaab13b6e8c2e7c1793b.mp3
+2025-03-07 14:20:45,064 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:20:45] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:20:45,091 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:20:45] "[33mGET /audio/cache/e3ec66eaeceadaab13b6e8c2e7c1793b.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 14:21:14,789 - __main__ - INFO - Chat endpoint called with message: 'my battery is not charging', session_id: session_9m2wzlojpha
+2025-03-07 14:21:14,790 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:21:14,790 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:21:16,536 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+There could be a few reasons why your battery isn't ch...
+2025-03-07 14:21:16,537 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. There...
+2025-03-07 14:21:30,813 - __main__ - INFO - Generated audio URL: audio/cache/af01c02506c1765854bc74ae83b68675.mp3
+2025-03-07 14:21:30,815 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:21:30] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:21:30,846 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:21:30] "[33mGET /audio/cache/af01c02506c1765854bc74ae83b68675.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 14:57:33,431 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:57:33] "GET / HTTP/1.1" 200 -
+2025-03-07 14:57:33,448 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:57:33] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 14:57:33,449 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:57:33] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 14:57:41,062 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_k4umyxg7jga
+2025-03-07 14:57:41,063 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:57:41,063 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:58:09,986 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+How may I help you with your e-rickshaw today?
+
+Here i...
+2025-03-07 14:58:09,991 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. How m...
+2025-03-07 14:58:16,269 - __main__ - INFO - Generated audio URL: audio/cache/30df41c1406ae251e31a9a8946b3dfa4.mp3
+2025-03-07 14:58:16,273 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:58:16] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:58:43,359 - __main__ - INFO - Chat endpoint called with message: 'I am facing issue with my battery', session_id: session_k4umyxg7jga
+2025-03-07 14:58:43,378 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:58:43,379 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:58:44,850 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+I understand you're facing an issue with your battery....
+2025-03-07 14:58:44,852 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. I und...
+2025-03-07 14:58:53,261 - __main__ - INFO - Generated audio URL: audio/cache/bc88dae25ab945f552f877de2802209a.mp3
+2025-03-07 14:58:53,265 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:58:53] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:58:53,374 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:58:53] "[33mGET /audio/cache/bc88dae25ab945f552f877de2802209a.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 14:59:16,046 - __main__ - INFO - Chat endpoint called with message: 'slow charging', session_id: session_k4umyxg7jga
+2025-03-07 14:59:16,047 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 14:59:16,047 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 14:59:18,031 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.
+
+Slow charging can be due to several factors. Here are ...
+2025-03-07 14:59:18,032 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. Slow ...
+2025-03-07 14:59:30,408 - __main__ - INFO - Generated audio URL: audio/cache/f3ef8111c2fea10f581b310e71a3c060.mp3
+2025-03-07 14:59:30,410 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:59:30] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 14:59:30,441 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 14:59:30] "[33mGET /audio/cache/f3ef8111c2fea10f581b310e71a3c060.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:04:40,579 - __main__ - INFO - aifc module is available.
+2025-03-07 18:04:40,587 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:04:40,588 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:04:40,588 - __main__ - INFO - Successfully created test model
+2025-03-07 18:04:42,557 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:04:42,616 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 18:04:42,616 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 18:04:42,625 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:04:43,021 - __main__ - INFO - aifc module is available.
+2025-03-07 18:04:43,024 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:04:43,025 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:04:43,025 - __main__ - INFO - Successfully created test model
+2025-03-07 18:04:45,090 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:04:45,106 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:04:45,116 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:04:49,479 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:04:49,688 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:04:49] "GET / HTTP/1.1" 200 -
+2025-03-07 18:04:49,711 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:04:49] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:04:49,711 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:04:49] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:04:49,964 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:04:49] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 18:04:49,965 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:04:49] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 18:04:50,379 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:04:51,213 - __main__ - INFO - aifc module is available.
+2025-03-07 18:04:51,219 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:04:51,220 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:04:51,220 - __main__ - INFO - Successfully created test model
+2025-03-07 18:04:53,239 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:04:53,256 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:04:53,274 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:05:05,063 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_o83ve5buoi
+2025-03-07 18:05:05,064 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:05:05,064 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:05:05,824 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.  I can only assist with e-rickshaw related questions. F...
+2025-03-07 18:05:05,826 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. I can...
+2025-03-07 18:05:08,172 - __main__ - INFO - Generated audio URL: audio/cache/6c5f5a2d6a0d154745b9a015e5a65bbc.mp3
+2025-03-07 18:05:08,175 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:05:08] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:05:08,303 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:05:08] "[33mGET /audio/cache/6c5f5a2d6a0d154745b9a015e5a65bbc.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:05:34,302 - __main__ - INFO - Chat endpoint called with message: 'my e-rickshaw is not starting', session_id: session_o83ve5buoi
+2025-03-07 18:05:34,303 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:05:34,303 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:05:35,656 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.  Your e-rickshaw is not starting.  Please check if the ...
+2025-03-07 18:05:35,658 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. Your ...
+2025-03-07 18:05:41,084 - __main__ - INFO - Generated audio URL: audio/cache/ddb58301f1cf7e07d3711021e2b56374.mp3
+2025-03-07 18:05:41,085 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:05:41] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:05:41,121 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:05:41] "[33mGET /audio/cache/ddb58301f1cf7e07d3711021e2b56374.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:06:27,079 - __main__ - INFO - Chat endpoint called with message: 'there is a mileage issue with my e-rickshaw', session_id: session_o83ve5buoi
+2025-03-07 18:06:27,084 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:06:27,084 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:06:28,232 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.  There is a mileage issue with your e-rickshaw?  Could ...
+2025-03-07 18:06:28,233 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. There...
+2025-03-07 18:06:32,898 - __main__ - INFO - Generated audio URL: audio/cache/1572e563b22488f37b88693bee78199d.mp3
+2025-03-07 18:06:32,900 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:06:32] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:06:32,940 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:06:32] "[33mGET /audio/cache/1572e563b22488f37b88693bee78199d.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:07:12,119 - __main__ - INFO - Chat endpoint called with message: 'it is running for 30 km per charge', session_id: session_o83ve5buoi
+2025-03-07 18:07:12,120 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:07:12,120 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:07:13,104 - __main__ - INFO - Received valid response from Gemini: Namaste! I am your SMV E-rickshaw assistant.  Your e-rickshaw's current range seems lower than expec...
+2025-03-07 18:07:13,106 - __main__ - INFO - Generating new TTS audio for text: Namaste! I am your SMV E-rickshaw assistant. Your ...
+2025-03-07 18:07:17,722 - __main__ - INFO - Generated audio URL: audio/cache/aec3e933048fb46c08c830b6e8276b4a.mp3
+2025-03-07 18:07:17,723 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:07:17] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:07:17,750 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:07:17] "[33mGET /audio/cache/aec3e933048fb46c08c830b6e8276b4a.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:11:00,487 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:11:01,525 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:11:02,562 - __main__ - INFO - aifc module is available.
+2025-03-07 18:11:02,570 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:11:02,570 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:11:02,570 - __main__ - INFO - Successfully created test model
+2025-03-07 18:11:04,731 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:11:04,745 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:11:04,755 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:11:10,852 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:11:11,933 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:11:12,595 - __main__ - INFO - aifc module is available.
+2025-03-07 18:11:12,601 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:11:12,602 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:11:12,602 - __main__ - INFO - Successfully created test model
+2025-03-07 18:11:14,602 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:11:14,608 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:11:14,615 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:11:31,880 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:31] "GET / HTTP/1.1" 200 -
+2025-03-07 18:11:32,099 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:11:32,099 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:32] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:11:32,099 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:32] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:11:32,099 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:32] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:11:40,488 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_0nf7aqm5967
+2025-03-07 18:11:40,488 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:11:40,489 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:11:41,076 - __main__ - INFO - Received valid response from Gemini: Namaste!  How can I help you today?
+...
+2025-03-07 18:11:41,078 - __main__ - INFO - Generating new TTS audio for text: Namaste! How can I help you today?...
+2025-03-07 18:11:41,670 - __main__ - INFO - Generated audio URL: audio/cache/0657b31be02e97902bb424196c69d6b7.mp3
+2025-03-07 18:11:41,672 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:41] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:11:41,717 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:41] "[33mGET /audio/cache/0657b31be02e97902bb424196c69d6b7.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:11:53,279 - __main__ - INFO - Chat endpoint called with message: 'I am facing issue with my e-rickshaw', session_id: session_0nf7aqm5967
+2025-03-07 18:11:53,282 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:11:53,282 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:11:54,223 - __main__ - INFO - Received valid response from Gemini: Namaste!  Oh no, I'm sorry to hear you're having trouble with your e-rickshaw.  Could you tell me mo...
+2025-03-07 18:11:54,224 - __main__ - INFO - Generating new TTS audio for text: Namaste! Oh no, I'm sorry to hear you're having tr...
+2025-03-07 18:11:58,881 - __main__ - INFO - Generated audio URL: audio/cache/2d9bda56cead193b9cc6d75179114430.mp3
+2025-03-07 18:11:58,885 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:58] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:11:58,918 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:11:58] "[33mGET /audio/cache/2d9bda56cead193b9cc6d75179114430.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:12:14,437 - __main__ - INFO - Chat endpoint called with message: 'what is the capital of India', session_id: session_0nf7aqm5967
+2025-03-07 18:12:14,438 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:12:14,438 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:12:15,239 - __main__ - INFO - Received valid response from Gemini: Namaste!  That's an interesting question, but I'm here to help with all things related to your e-ric...
+2025-03-07 18:12:15,240 - __main__ - INFO - Generating new TTS audio for text: Namaste! That's an interesting question, but I'm h...
+2025-03-07 18:12:19,967 - __main__ - INFO - Generated audio URL: audio/cache/c1a9dfc74cf9db4d2e83608a05d05398.mp3
+2025-03-07 18:12:19,969 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:12:19] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:12:20,010 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:12:20] "[33mGET /audio/cache/c1a9dfc74cf9db4d2e83608a05d05398.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:12:39,214 - __main__ - INFO - Chat endpoint called with message: 'is there any school nearby?', session_id: session_0nf7aqm5967
+2025-03-07 18:12:39,215 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:12:39,215 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:12:40,158 - __main__ - INFO - Received valid response from Gemini: Namaste!  While I can't help with finding schools, I can certainly assist with anything related to y...
+2025-03-07 18:12:40,158 - __main__ - INFO - Generating new TTS audio for text: Namaste! While I can't help with finding schools, ...
+2025-03-07 18:12:42,451 - __main__ - INFO - Generated audio URL: audio/cache/3a0e3f66e0791b5a07231d305c60e178.mp3
+2025-03-07 18:12:42,453 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:12:42] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:12:42,497 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:12:42] "[33mGET /audio/cache/3a0e3f66e0791b5a07231d305c60e178.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:13:06,937 - __main__ - INFO - Chat endpoint called with message: 'when was my last service', session_id: session_0nf7aqm5967
+2025-03-07 18:13:06,938 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:13:06,939 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:13:07,612 - __main__ - INFO - Received valid response from Gemini: Namaste!  Your last service was on June 10th, 2024.  Remember to keep up with your regular servicing...
+2025-03-07 18:13:07,613 - __main__ - INFO - Generating new TTS audio for text: Namaste! Your last service was on June 10th, 2024....
+2025-03-07 18:13:09,448 - __main__ - INFO - Generated audio URL: audio/cache/52195a42a2a15a9d468ccd2b0569edd4.mp3
+2025-03-07 18:13:09,451 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:13:09] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:13:09,784 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:13:09] "[33mGET /audio/cache/52195a42a2a15a9d468ccd2b0569edd4.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:17:48,570 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:17:48,578 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:17:49,839 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:17:50,742 - __main__ - INFO - aifc module is available.
+2025-03-07 18:17:50,750 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:17:50,750 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:17:50,750 - __main__ - INFO - Successfully created test model
+2025-03-07 18:17:52,731 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:17:52,751 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:17:52,763 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:18:07,720 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:18:08,028 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:18:08,694 - __main__ - INFO - aifc module is available.
+2025-03-07 18:18:08,700 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:18:08,701 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:18:08,701 - __main__ - INFO - Successfully created test model
+2025-03-07 18:18:10,686 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:18:10,706 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:18:10,718 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:18:24,038 - __main__ - INFO - aifc module is available.
+2025-03-07 18:18:24,044 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:18:24,045 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:18:24,045 - __main__ - INFO - Successfully created test model
+2025-03-07 18:18:25,981 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:18:26,039 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 18:18:26,039 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 18:18:26,045 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:18:26,515 - __main__ - INFO - aifc module is available.
+2025-03-07 18:18:26,519 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:18:26,519 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:18:26,519 - __main__ - INFO - Successfully created test model
+2025-03-07 18:18:28,510 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:18:28,519 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:18:28,530 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:18:37,398 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "GET / HTTP/1.1" 200 -
+2025-03-07 18:18:37,418 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:18:37,419 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:18:37,459 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:18:37,461 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:18:37,461 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:18:37,461 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:18:46,328 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_be0hc1qr19
+2025-03-07 18:18:46,329 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:18:46,330 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:18:46,908 - __main__ - INFO - Received valid response from Gemini: Namaste!  How can I help you today?
+...
+2025-03-07 18:18:46,909 - __main__ - INFO - Using cached audio file: /Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/static/audio/cache/0657b31be02e97902bb424196c69d6b7.mp3
+2025-03-07 18:18:46,909 - __main__ - INFO - Generated audio URL: audio/cache/0657b31be02e97902bb424196c69d6b7.mp3
+2025-03-07 18:18:46,910 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:46] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:18:46,985 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:18:46] "[33mGET /audio/cache/0657b31be02e97902bb424196c69d6b7.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:18:55,788 - __main__ - INFO - Chat endpoint called with message: 'mere battery mein problem hai', session_id: session_be0hc1qr19
+2025-03-07 18:18:55,790 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:18:55,790 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:18:56,719 - __main__ - INFO - Received valid response from Gemini: Arre wah!  Sounds frustrating.  Your battery is currently showing 93%, so it might not be a major is...
+2025-03-07 18:18:56,720 - __main__ - INFO - Generating new TTS audio for text: Arre wah! Sounds frustrating. Your battery is curr...
+2025-03-07 18:19:01,970 - __main__ - INFO - Generated audio URL: audio/cache/5fea6bedbcab0fe99ebabb533cd5b4f1.mp3
+2025-03-07 18:19:01,972 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:19:01] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:19:02,000 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:19:02] "[33mGET /audio/cache/5fea6bedbcab0fe99ebabb533cd5b4f1.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:19:31,644 - __main__ - INFO - Chat endpoint called with message: 'my battery is taking too much time to charge', session_id: session_be0hc1qr19
+2025-03-07 18:19:31,644 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:19:31,645 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:19:32,669 - __main__ - INFO - Received valid response from Gemini: That sounds frustrating!  Your battery is currently at 93%, so it's showing a decent charge.  Is it ...
+2025-03-07 18:19:32,669 - __main__ - INFO - Generating new TTS audio for text: That sounds frustrating! Your battery is currently...
+2025-03-07 18:19:36,476 - __main__ - INFO - Generated audio URL: audio/cache/141605a57952ee786fe563f37a684b38.mp3
+2025-03-07 18:19:36,478 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:19:36] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:19:36,499 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:19:36] "[33mGET /audio/cache/141605a57952ee786fe563f37a684b38.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:21:04,386 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:21:05,555 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:21:06,685 - __main__ - INFO - aifc module is available.
+2025-03-07 18:21:06,692 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:21:06,693 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:21:06,693 - __main__ - INFO - Successfully created test model
+2025-03-07 18:21:08,840 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:21:08,849 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:21:08,857 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:21:08,914 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:21:09,992 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:21:11,173 - __main__ - INFO - aifc module is available.
+2025-03-07 18:21:11,179 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:21:11,180 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:21:11,180 - __main__ - INFO - Successfully created test model
+2025-03-07 18:21:13,158 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:21:13,171 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:21:13,181 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:21:23,907 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:21:24,980 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:21:26,472 - __main__ - INFO - aifc module is available.
+2025-03-07 18:21:26,479 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:21:26,480 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:21:26,480 - __main__ - INFO - Successfully created test model
+2025-03-07 18:21:27,160 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:21:27,173 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:21:27,188 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:23:44,799 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:23:44] "GET / HTTP/1.1" 200 -
+2025-03-07 18:23:44,893 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:23:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:23:44,900 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:23:44] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:23:44,901 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:23:44] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:23:44,901 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:23:44] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:24:02,333 - __main__ - INFO - Chat endpoint called with message: 'is there any school nearby', session_id: session_fwolainhok9
+2025-03-07 18:24:02,334 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:24:02,334 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:24:03,210 - __main__ - INFO - Received valid response from Gemini: Yes, the nearest school is APS Academy, about 1.1 km away.  There's also City Montessori School at a...
+2025-03-07 18:24:03,214 - __main__ - INFO - Generating new TTS audio for text: Yes, the nearest school is APS Academy, about 1.1 ...
+2025-03-07 18:24:05,272 - __main__ - INFO - Generated audio URL: audio/cache/5ca1d938250df03806935c17d1cfa784.mp3
+2025-03-07 18:24:05,274 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:05] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:24:05,311 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:05] "[33mGET /audio/cache/5ca1d938250df03806935c17d1cfa784.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:24:24,168 - __main__ - INFO - Chat endpoint called with message: 'what about mall', session_id: session_fwolainhok9
+2025-03-07 18:24:24,168 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:24:24,168 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:24:24,962 - __main__ - INFO - Received valid response from Gemini: The nearest mall is City Center Mall, approximately 1.5 km from your current location.  Phoenix Pala...
+2025-03-07 18:24:24,963 - __main__ - INFO - Generating new TTS audio for text: The nearest mall is City Center Mall, approximatel...
+2025-03-07 18:24:26,313 - __main__ - INFO - Generated audio URL: audio/cache/0a85565d87e6afb35ccfaeceaee4eb6e.mp3
+2025-03-07 18:24:26,314 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:26] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:24:26,337 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:26] "[33mGET /audio/cache/0a85565d87e6afb35ccfaeceaee4eb6e.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:24:50,736 - __main__ - INFO - Chat endpoint called with message: 'where I can get maximum income out of these locations', session_id: session_fwolainhok9
+2025-03-07 18:24:50,738 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:24:50,738 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:24:51,752 - __main__ - INFO - Received valid response from Gemini: To maximize your income, consider focusing on areas with high passenger traffic during peak hours.  ...
+2025-03-07 18:24:51,753 - __main__ - INFO - Generating new TTS audio for text: To maximize your income, consider focusing on area...
+2025-03-07 18:24:56,627 - __main__ - INFO - Generated audio URL: audio/cache/9edec13986cd87675499ad995f625333.mp3
+2025-03-07 18:24:56,628 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:56] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:24:56,659 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:24:56] "[33mGET /audio/cache/9edec13986cd87675499ad995f625333.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:25:33,558 - __main__ - INFO - Chat endpoint called with message: 'help me decide which location I should go for maximum earning', session_id: session_fwolainhok9
+2025-03-07 18:25:33,559 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:25:33,559 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:25:34,962 - __main__ - INFO - Received valid response from Gemini: To best advise you on maximizing your earnings, I need more information.  Consider these factors:
+
+*...
+2025-03-07 18:25:34,964 - __main__ - INFO - Generating new TTS audio for text: To best advise you on maximizing your earnings, I ...
+2025-03-07 18:25:43,952 - __main__ - INFO - Generated audio URL: audio/cache/205b6db31159440a9804cf851a627038.mp3
+2025-03-07 18:25:43,954 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:25:43] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:25:43,984 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:25:43] "[33mGET /audio/cache/205b6db31159440a9804cf851a627038.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:26:11,164 - __main__ - INFO - Chat endpoint called with message: 'suggest from the nearby places', session_id: session_fwolainhok9
+2025-03-07 18:26:11,166 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:26:11,166 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:26:12,208 - __main__ - INFO - Received valid response from Gemini: Nearby, you have APS Academy (1.1 km) and City Montessori School (2.3 km).  For bus stations, there'...
+2025-03-07 18:26:12,208 - __main__ - INFO - Generating new TTS audio for text: Nearby, you have APS Academy (1.1 km) and City Mon...
+2025-03-07 18:26:18,767 - __main__ - INFO - Generated audio URL: audio/cache/07e8ef27cf07fa07279cc37dddb77f05.mp3
+2025-03-07 18:26:18,769 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:26:18] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:26:18,803 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:26:18] "[33mGET /audio/cache/07e8ef27cf07fa07279cc37dddb77f05.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:26:38,791 - __main__ - INFO - Chat endpoint called with message: 'evaluate the earning potential from the above location', session_id: session_fwolainhok9
+2025-03-07 18:26:38,793 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:26:38,793 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:26:40,397 - __main__ - INFO - Received valid response from Gemini: I cannot provide an exact evaluation of earning potential based solely on your location.  Earning po...
+2025-03-07 18:26:40,398 - __main__ - INFO - Generating new TTS audio for text: I cannot provide an exact evaluation of earning po...
+2025-03-07 18:26:49,333 - __main__ - INFO - Generated audio URL: audio/cache/977165ed97837e683c5d603f0fe0cbfa.mp3
+2025-03-07 18:26:49,347 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:26:49] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:26:49,379 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:26:49] "[33mGET /audio/cache/977165ed97837e683c5d603f0fe0cbfa.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:27:22,299 - __main__ - INFO - Chat endpoint called with message: 'so my motor is making a lot of noise', session_id: session_fwolainhok9
+2025-03-07 18:27:22,300 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:27:22,300 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:27:23,433 - __main__ - INFO - Received valid response from Gemini: A noisy motor could indicate several issues.  First, check the motor for any loose parts or visible ...
+2025-03-07 18:27:23,433 - __main__ - INFO - Generating new TTS audio for text: A noisy motor could indicate several issues. First...
+2025-03-07 18:27:27,259 - __main__ - INFO - Generated audio URL: audio/cache/ce3570f2e0f3d2e5db119d9c1852eb7a.mp3
+2025-03-07 18:27:27,260 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:27:27] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:27:27,280 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:27:27] "[33mGET /audio/cache/ce3570f2e0f3d2e5db119d9c1852eb7a.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:27:47,741 - __main__ - INFO - Chat endpoint called with message: 'what is the capital of India', session_id: session_fwolainhok9
+2025-03-07 18:27:47,742 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:27:47,742 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:27:48,684 - __main__ - INFO - Received valid response from Gemini: That's outside the scope of my assistance as an SMV E-rickshaw assistant.  I can help you with quest...
+2025-03-07 18:27:48,685 - __main__ - INFO - Generating new TTS audio for text: That's outside the scope of my assistance as an SM...
+2025-03-07 18:27:52,424 - __main__ - INFO - Generated audio URL: audio/cache/7018d42ea730eea7d2287c65af4b9ceb.mp3
+2025-03-07 18:27:52,425 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:27:52] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:27:52,456 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:27:52] "[33mGET /audio/cache/7018d42ea730eea7d2287c65af4b9ceb.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:28:09,871 - __main__ - INFO - Chat endpoint called with message: 'when is my next service due?', session_id: session_fwolainhok9
+2025-03-07 18:28:09,872 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:28:09,872 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:28:10,600 - __main__ - INFO - Received valid response from Gemini: Your next scheduled service is on December 10th, 2024.  Regular maintenance helps ensure optimal per...
+2025-03-07 18:28:10,602 - __main__ - INFO - Generating new TTS audio for text: Your next scheduled service is on December 10th, 2...
+2025-03-07 18:28:12,150 - __main__ - INFO - Generated audio URL: audio/cache/37df4a1b11a03bca37c092a096f1adb4.mp3
+2025-03-07 18:28:12,151 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:28:12] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:28:12,178 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:28:12] "[33mGET /audio/cache/37df4a1b11a03bca37c092a096f1adb4.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:28:35,528 - __main__ - INFO - Chat endpoint called with message: 'what is my drive rating', session_id: session_fwolainhok9
+2025-03-07 18:28:35,529 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:28:35,529 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:28:36,193 - __main__ - INFO - Received valid response from Gemini: Your driver rating is 4.5.
+...
+2025-03-07 18:28:36,195 - __main__ - INFO - Generating new TTS audio for text: Your driver rating is 4.5....
+2025-03-07 18:28:36,645 - __main__ - INFO - Generated audio URL: audio/cache/6bd0e030e1c8f9bd521fd01068b10cab.mp3
+2025-03-07 18:28:36,645 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:28:36] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:28:36,665 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:28:36] "[33mGET /audio/cache/6bd0e030e1c8f9bd521fd01068b10cab.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:29:08,364 - __main__ - INFO - Chat endpoint called with message: 'how can I reach SMV representative?', session_id: session_fwolainhok9
+2025-03-07 18:29:08,367 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:29:08,367 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:29:09,006 - __main__ - INFO - Received valid response from Gemini: To contact SMV support, please call 1800-XXX-XXXX.
+...
+2025-03-07 18:29:09,008 - __main__ - INFO - Generating new TTS audio for text: To contact SMV support, please call 1800-XXX-XXXX....
+2025-03-07 18:29:09,880 - __main__ - INFO - Generated audio URL: audio/cache/eaf9bd522151bbed629c6b1f1839045f.mp3
+2025-03-07 18:29:09,882 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:29:09] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:29:09,913 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:29:09] "[33mGET /audio/cache/eaf9bd522151bbed629c6b1f1839045f.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:32:19,477 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "GET / HTTP/1.1" 200 -
+2025-03-07 18:32:19,557 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:32:19,567 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 18:32:19,571 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:32:19,571 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:32:19,571 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 18:32:19,652 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:19] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:32:33,438 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_fxxnxrptcf7
+2025-03-07 18:32:33,439 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:32:33,439 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:32:34,165 - __main__ - INFO - Received valid response from Gemini: Namaste! I'm your SMV E-rickshaw assistant. How can I help you today with your e-rickshaw?
+...
+2025-03-07 18:32:34,168 - __main__ - INFO - Generating new TTS audio for text: Namaste! I'm your SMV E-rickshaw assistant. How ca...
+2025-03-07 18:32:34,791 - __main__ - INFO - Generated audio URL: audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 18:32:34,792 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:34] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:32:34,846 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:34] "[33mGET /audio/cache/d7084204783d201d000cde6badebc25e.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:32:45,401 - __main__ - INFO - Chat endpoint called with message: 'is there any school nearby', session_id: session_fxxnxrptcf7
+2025-03-07 18:32:45,402 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:32:45,402 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:32:46,181 - __main__ - INFO - Received valid response from Gemini: Yes, the nearest school is APS Academy, about 1.1 km away.  There's also City Montessori School, 2.3...
+2025-03-07 18:32:46,182 - __main__ - INFO - Generating new TTS audio for text: Yes, the nearest school is APS Academy, about 1.1 ...
+2025-03-07 18:32:48,977 - __main__ - INFO - Generated audio URL: audio/cache/68a2aee3e8b56848a3125de4b813e3e2.mp3
+2025-03-07 18:32:48,978 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:48] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:32:49,002 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:32:49] "[33mGET /audio/cache/68a2aee3e8b56848a3125de4b813e3e2.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:35:19,173 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "GET / HTTP/1.1" 200 -
+2025-03-07 18:35:19,207 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:35:19,210 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:35:19,211 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 18:35:19,213 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:35:19,213 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 18:35:19,259 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:35:19,377 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:19] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:35:28,912 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_ls6ejqwecwc
+2025-03-07 18:35:28,913 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:35:28,913 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:35:29,620 - __main__ - INFO - Received valid response from Gemini: Namaste! I'm your SMV E-rickshaw assistant. How can I help you today with your e-rickshaw?
+...
+2025-03-07 18:35:29,623 - __main__ - INFO - Using cached audio file: /Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/static/audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 18:35:29,623 - __main__ - INFO - Generated audio URL: audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 18:35:29,625 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:29] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:35:29,730 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:29] "[33mGET /audio/cache/d7084204783d201d000cde6badebc25e.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:35:43,387 - __main__ - INFO - Chat endpoint called with message: 'my e-rickshaw is giving performance', session_id: session_ls6ejqwecwc
+2025-03-07 18:35:43,388 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 18:35:43,388 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 18:35:44,186 - __main__ - INFO - Received valid response from Gemini: Could you please clarify what you mean by "giving performance"?  Are you experiencing reduced speed,...
+2025-03-07 18:35:44,186 - __main__ - INFO - Generating new TTS audio for text: Could you please clarify what you mean by "giving ...
+2025-03-07 18:35:46,737 - __main__ - INFO - Generated audio URL: audio/cache/42588a4582103dc00ba0eb21f90084e6.mp3
+2025-03-07 18:35:46,739 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:46] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 18:35:46,769 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:35:46] "[33mGET /audio/cache/42588a4582103dc00ba0eb21f90084e6.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 18:38:18,507 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "GET / HTTP/1.1" 200 -
+2025-03-07 18:38:18,590 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:18,591 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:18,593 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:18,593 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:18,612 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:18,678 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:18] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:21,065 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "GET / HTTP/1.1" 200 -
+2025-03-07 18:38:21,089 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:21,092 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:21,093 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:21,093 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:21,094 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:21,101 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:21,120 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:21] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:29,797 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 18:38:30,727 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:38:31,778 - __main__ - INFO - aifc module is available.
+2025-03-07 18:38:31,786 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:38:31,787 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:38:31,787 - __main__ - INFO - Successfully created test model
+2025-03-07 18:38:33,813 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:38:33,827 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:38:33,840 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:38:35,617 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "GET / HTTP/1.1" 200 -
+2025-03-07 18:38:35,620 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:35,642 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:35,642 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:38:35,642 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:35,642 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:38:35,648 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:38:35,655 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:38:35] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:22,064 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "GET / HTTP/1.1" 200 -
+2025-03-07 18:41:22,178 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:22,179 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 18:41:22,181 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 18:41:22,182 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 18:41:22,183 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 18:41:22,341 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:22,947 - werkzeug - INFO - 192.168.1.117 - - [07/Mar/2025 18:41:22] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:42,009 - __main__ - INFO - aifc module is available.
+2025-03-07 18:41:42,019 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:41:42,020 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:41:42,020 - __main__ - INFO - Successfully created test model
+2025-03-07 18:41:42,888 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:41:42,928 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.117:9090
+2025-03-07 18:41:42,928 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 18:41:42,937 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 18:41:43,352 - __main__ - INFO - aifc module is available.
+2025-03-07 18:41:43,355 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 18:41:43,356 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 18:41:43,356 - __main__ - INFO - Successfully created test model
+2025-03-07 18:41:45,345 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 18:41:45,353 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 18:41:45,366 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 18:41:47,689 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "GET / HTTP/1.1" 200 -
+2025-03-07 18:41:47,694 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:47,695 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 18:41:47,770 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 18:41:47,770 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 18:41:47,771 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 18:41:47,771 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 18:41:47,824 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 18:41:47] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:50:58,963 - __main__ - INFO - aifc module is available.
+2025-03-07 22:50:58,971 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:50:58,972 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:50:58,972 - __main__ - INFO - Successfully created test model
+2025-03-07 22:50:59,738 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:50:59,789 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 22:50:59,789 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 22:50:59,797 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:51:00,207 - __main__ - INFO - aifc module is available.
+2025-03-07 22:51:00,210 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:51:00,211 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:51:00,211 - __main__ - INFO - Successfully created test model
+2025-03-07 22:51:00,991 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:51:00,996 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:51:01,009 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:51:06,531 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "GET / HTTP/1.1" 200 -
+2025-03-07 22:51:06,611 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:51:06,620 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 22:51:06,621 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 22:51:06,623 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 22:51:06,623 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 22:51:06,659 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:51:06,898 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:06] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:51:31,279 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_98zxlcypz1l
+2025-03-07 22:51:31,280 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 22:51:31,280 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 22:51:31,967 - __main__ - INFO - Received valid response from Gemini: Namaste! I'm your SMV E-rickshaw assistant. How can I help you today with your e-rickshaw?
+...
+2025-03-07 22:51:31,970 - __main__ - INFO - Using cached audio file: /Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/static/audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 22:51:31,970 - __main__ - INFO - Generated audio URL: audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 22:51:31,970 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:31] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 22:51:32,063 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:51:32] "[33mGET /audio/cache/d7084204783d201d000cde6badebc25e.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 22:54:20,578 - __main__ - INFO - aifc module is available.
+2025-03-07 22:54:20,586 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:54:20,587 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:54:20,587 - __main__ - INFO - Successfully created test model
+2025-03-07 22:54:21,548 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:54:21,577 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 22:54:21,577 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 22:54:21,585 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:54:21,994 - __main__ - INFO - aifc module is available.
+2025-03-07 22:54:21,998 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:54:21,998 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:54:21,999 - __main__ - INFO - Successfully created test model
+2025-03-07 22:54:24,078 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:54:24,087 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:54:24,099 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:54:25,897 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:25] "GET / HTTP/1.1" 200 -
+2025-03-07 22:54:25,906 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:25] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:54:25,907 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:25] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:54:26,090 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:26] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 22:54:26,091 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:26] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 22:54:26,092 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:26] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 22:54:26,092 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:26] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 22:54:26,122 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:54:26] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:54:56,470 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 22:54:56,478 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 22:54:57,514 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:54:58,282 - __main__ - INFO - aifc module is available.
+2025-03-07 22:54:58,289 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:54:58,290 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:54:58,290 - __main__ - INFO - Successfully created test model
+2025-03-07 22:55:00,282 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:55:00,288 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:55:00,296 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:55:00,795 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "GET / HTTP/1.1" 200 -
+2025-03-07 22:55:00,798 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:55:00,798 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:55:00,808 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 22:55:00,809 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 22:55:00,813 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 22:55:00,814 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 22:55:00,817 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:55:00] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:55:00,970 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 22:55:01,507 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:55:01,947 - __main__ - INFO - aifc module is available.
+2025-03-07 22:55:01,951 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:55:01,951 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:55:01,951 - __main__ - INFO - Successfully created test model
+2025-03-07 22:55:03,918 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:55:03,946 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:55:03,958 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:57:49,628 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 22:57:50,538 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:57:51,243 - __main__ - INFO - aifc module is available.
+2025-03-07 22:57:51,250 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:57:51,251 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:57:51,251 - __main__ - INFO - Successfully created test model
+2025-03-07 22:57:53,268 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:57:53,280 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:57:53,297 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:57:56,094 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 22:57:56,428 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:57:57,012 - __main__ - INFO - aifc module is available.
+2025-03-07 22:57:57,018 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:57:57,019 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:57:57,019 - __main__ - INFO - Successfully created test model
+2025-03-07 22:57:58,988 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:57:59,000 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:57:59,011 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:59:06,137 - __main__ - INFO - aifc module is available.
+2025-03-07 22:59:06,145 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:59:06,147 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:59:06,147 - __main__ - INFO - Successfully created test model
+2025-03-07 22:59:08,300 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:59:28,933 - __main__ - INFO - aifc module is available.
+2025-03-07 22:59:28,939 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:59:28,940 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:59:28,940 - __main__ - INFO - Successfully created test model
+2025-03-07 22:59:30,997 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:59:31,026 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 22:59:31,027 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 22:59:31,036 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 22:59:31,574 - __main__ - INFO - aifc module is available.
+2025-03-07 22:59:31,581 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 22:59:31,582 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 22:59:31,582 - __main__ - INFO - Successfully created test model
+2025-03-07 22:59:33,578 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 22:59:33,591 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 22:59:33,607 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 22:59:34,762 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "GET / HTTP/1.1" 200 -
+2025-03-07 22:59:34,767 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:59:34,767 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 22:59:34,857 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 22:59:34,858 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 22:59:34,859 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 22:59:34,859 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 22:59:34,884 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 22:59:34] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:01:04,805 - __main__ - INFO - aifc module is available.
+2025-03-07 23:01:04,811 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:01:04,813 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:01:04,813 - __main__ - INFO - Successfully created test model
+2025-03-07 23:01:06,829 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:01:06,867 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:01:06,868 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:01:06,877 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:01:07,273 - __main__ - INFO - aifc module is available.
+2025-03-07 23:01:07,277 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:01:07,277 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:01:07,277 - __main__ - INFO - Successfully created test model
+2025-03-07 23:01:09,310 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:01:09,321 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:01:09,336 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:01:10,993 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:10] "GET / HTTP/1.1" 200 -
+2025-03-07 23:01:11,007 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:01:11,007 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:01:11,041 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:01:11,043 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:01:11,044 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:01:11,044 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:01:11,084 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:01:11] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,164 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "GET / HTTP/1.1" 200 -
+2025-03-07 23:03:26,178 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/images/smv-logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,178 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/js/app.js HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,179 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/css/styles.css HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,205 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 23:03:26,205 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 23:03:26,214 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 23:03:26,221 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,222 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 23:03:26,379 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:03:26,601 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:26] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:03:46,889 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:03:46] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:46,063 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "GET / HTTP/1.1" 200 -
+2025-03-07 23:05:46,071 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:46,072 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:46,121 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:05:46,122 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:05:46,124 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:05:46,127 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:05:46,210 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:46] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:47,013 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "GET / HTTP/1.1" 200 -
+2025-03-07 23:05:47,016 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:47,018 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:05:47,046 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:05:47,048 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:05:47,048 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:05:47,049 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:05:47,073 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:05:47] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:10:32,512 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "GET / HTTP/1.1" 200 -
+2025-03-07 23:10:32,537 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:10:32,537 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:10:32,546 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:10:32,547 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:10:32,547 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:10:32,576 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:10:32] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:12:41,945 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "GET / HTTP/1.1" 200 -
+2025-03-07 23:12:41,962 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:12:41,972 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:12:41,975 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:12:41,976 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:12:41,976 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:12:41,977 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:12:41] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:13:20,947 - __main__ - INFO - aifc module is available.
+2025-03-07 23:13:20,955 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:13:20,956 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:13:20,956 - __main__ - INFO - Successfully created test model
+2025-03-07 23:13:23,098 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:13:23,130 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:13:23,130 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:13:23,139 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:13:23,560 - __main__ - INFO - aifc module is available.
+2025-03-07 23:13:23,563 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:13:23,564 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:13:23,564 - __main__ - INFO - Successfully created test model
+2025-03-07 23:13:24,328 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:13:24,343 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:13:24,359 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:13:30,272 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "GET / HTTP/1.1" 200 -
+2025-03-07 23:13:30,347 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:13:30,493 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:13:30,494 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:13:30,501 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:13:30,503 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:13:30,570 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:13:30,866 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:13:30] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:04,344 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "GET / HTTP/1.1" 200 -
+2025-03-07 23:18:04,418 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:04,439 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,440 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,440 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,440 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,455 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:04,708 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,708 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,715 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,716 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:04,812 - werkzeug - INFO - 192.168.29.93 - - [07/Mar/2025 23:18:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:45,783 - __main__ - INFO - aifc module is available.
+2025-03-07 23:18:45,791 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:18:45,792 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:18:45,792 - __main__ - INFO - Successfully created test model
+2025-03-07 23:18:47,993 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:18:48,024 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:18:48,025 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:18:48,032 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:18:48,457 - __main__ - INFO - aifc module is available.
+2025-03-07 23:18:48,460 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:18:48,461 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:18:48,461 - __main__ - INFO - Successfully created test model
+2025-03-07 23:18:49,209 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:18:49,214 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:18:49,223 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:18:51,692 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "GET / HTTP/1.1" 200 -
+2025-03-07 23:18:51,703 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:51,704 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:18:51,710 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,710 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,711 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,711 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,775 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,775 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,784 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,784 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:18:51,853 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:18:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:20,126 - __main__ - INFO - aifc module is available.
+2025-03-07 23:21:20,133 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:21:20,134 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:21:20,134 - __main__ - INFO - Successfully created test model
+2025-03-07 23:21:22,183 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:21:22,205 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:21:22,205 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:21:22,211 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:21:22,631 - __main__ - INFO - aifc module is available.
+2025-03-07 23:21:22,634 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:21:22,635 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:21:22,635 - __main__ - INFO - Successfully created test model
+2025-03-07 23:21:23,368 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:21:23,375 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:21:23,384 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:21:26,593 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "GET / HTTP/1.1" 200 -
+2025-03-07 23:21:26,600 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:26,601 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:26,849 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:21:26,850 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:21:26,884 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:21:26,894 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:26] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:21:27,081 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:27] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:45,697 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 23:21:46,797 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:21:47,431 - __main__ - INFO - aifc module is available.
+2025-03-07 23:21:47,437 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:21:47,437 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:21:47,437 - __main__ - INFO - Successfully created test model
+2025-03-07 23:21:48,164 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:21:48,172 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:21:48,183 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:21:53,616 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 23:21:54,497 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:21:55,455 - __main__ - INFO - aifc module is available.
+2025-03-07 23:21:55,468 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:21:55,469 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:21:55,469 - __main__ - INFO - Successfully created test model
+2025-03-07 23:21:57,520 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:21:57,536 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:21:57,546 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:21:57,571 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "GET / HTTP/1.1" 200 -
+2025-03-07 23:21:57,574 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:57,575 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:21:57,592 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:21:57,592 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:21:57,592 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:21:57,592 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:21:57,607 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:21:57] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:22:25,841 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:22:25] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+2025-03-07 23:22:25,842 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:22:25] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+2025-03-07 23:22:25,843 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:22:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-07 23:22:25,851 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:22:25] "GET / HTTP/1.1" 200 -
+2025-03-07 23:23:10,321 - __main__ - INFO - aifc module is available.
+2025-03-07 23:23:10,329 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:23:10,329 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:23:10,329 - __main__ - INFO - Successfully created test model
+2025-03-07 23:23:11,104 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:23:11,132 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:23:11,132 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:23:11,140 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:23:11,558 - __main__ - INFO - aifc module is available.
+2025-03-07 23:23:11,562 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:23:11,562 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:23:11,562 - __main__ - INFO - Successfully created test model
+2025-03-07 23:23:13,524 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:23:13,538 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:23:13,554 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:23:16,632 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "GET / HTTP/1.1" 200 -
+2025-03-07 23:23:16,823 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "GET /static/js/chat.js HTTP/1.1" 200 -
+2025-03-07 23:23:16,825 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "GET /static/css/chat.css HTTP/1.1" 200 -
+2025-03-07 23:23:16,825 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "GET /static/js/map.js HTTP/1.1" 200 -
+2025-03-07 23:23:16,825 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-03-07 23:23:16,826 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:16] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:23:17,033 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:17] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:23:17,444 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:17] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:23:17,875 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:17] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+2025-03-07 23:23:17,899 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:17] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+2025-03-07 23:23:33,126 - __main__ - INFO - Chat endpoint called with message: 'hi', session_id: session_jhq0mt9o53
+2025-03-07 23:23:33,128 - __main__ - INFO - Successfully created Gemini model instance
+2025-03-07 23:23:33,128 - __main__ - INFO - Sending prompt to Gemini API
+2025-03-07 23:23:33,880 - __main__ - INFO - Received valid response from Gemini: Namaste! I'm your SMV E-rickshaw assistant. How can I help you today with your e-rickshaw?
+...
+2025-03-07 23:23:33,881 - __main__ - INFO - Using cached audio file: /Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/static/audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 23:23:33,882 - __main__ - INFO - Generated audio URL: audio/cache/d7084204783d201d000cde6badebc25e.mp3
+2025-03-07 23:23:33,882 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:33] "POST /api/chat HTTP/1.1" 200 -
+2025-03-07 23:23:34,012 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:23:34] "[33mGET /audio/cache/d7084204783d201d000cde6badebc25e.mp3 HTTP/1.1[0m" 404 -
+2025-03-07 23:25:30,008 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "GET / HTTP/1.1" 200 -
+2025-03-07 23:25:30,044 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,044 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,045 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,045 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,069 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,069 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,073 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,073 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:25:30,076 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:25:30,227 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:25:30] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:25:51,747 - werkzeug - INFO -  * Detected change in '/Users/abhishekdwivedi/Documents/Abhishek/Personal/Python_Code/SMV Chat Bot/app.py', reloading
+2025-03-07 23:25:52,127 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:25:53,080 - __main__ - INFO - aifc module is available.
+2025-03-07 23:25:53,087 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:25:53,088 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:25:53,088 - __main__ - INFO - Successfully created test model
+2025-03-07 23:25:55,094 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:25:55,108 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:25:55,118 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:26:16,561 - __main__ - INFO - aifc module is available.
+2025-03-07 23:26:16,567 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:26:16,569 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:26:16,569 - __main__ - INFO - Successfully created test model
+2025-03-07 23:26:18,603 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:26:18,632 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:26:18,632 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:26:18,638 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:26:19,046 - __main__ - INFO - aifc module is available.
+2025-03-07 23:26:19,050 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:26:19,051 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:26:19,051 - __main__ - INFO - Successfully created test model
+2025-03-07 23:26:21,056 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:26:21,065 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:26:21,080 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:26:29,403 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "GET / HTTP/1.1" 200 -
+2025-03-07 23:26:29,409 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:26:29,410 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:26:29,459 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:26:29,459 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:26:29,463 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:26:29,463 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:26:29,509 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:26:29] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:28:34,217 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "GET / HTTP/1.1" 200 -
+2025-03-07 23:28:34,241 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:28:34,242 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:28:34,279 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:28:34,280 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:28:34,280 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:28:34,280 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:28:34,298 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:28:34] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:29:39,163 - __main__ - INFO - aifc module is available.
+2025-03-07 23:29:39,169 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:29:39,171 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:29:39,171 - __main__ - INFO - Successfully created test model
+2025-03-07 23:29:41,192 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:29:41,229 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.29.93:9090
+2025-03-07 23:29:41,229 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-07 23:29:41,236 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-03-07 23:29:41,640 - __main__ - INFO - aifc module is available.
+2025-03-07 23:29:41,643 - __main__ - INFO - Speech recognition module successfully imported and initialized.
+2025-03-07 23:29:41,644 - __main__ - INFO - Successfully configured Google Generative AI client
+2025-03-07 23:29:41,644 - __main__ - INFO - Successfully created test model
+2025-03-07 23:29:43,645 - __main__ - INFO - ✅ Gemini API self-test successful
+2025-03-07 23:29:43,656 - werkzeug - WARNING -  * Debugger is active!
+2025-03-07 23:29:43,673 - werkzeug - INFO -  * Debugger PIN: 523-028-354
+2025-03-07 23:29:44,128 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "GET / HTTP/1.1" 200 -
+2025-03-07 23:29:44,140 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[33mGET /static/img/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:29:44,140 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-03-07 23:29:44,238 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+2025-03-07 23:29:44,238 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[36mGET /static/js/chat.js HTTP/1.1[0m" 304 -
+2025-03-07 23:29:44,239 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[36mGET /static/js/map.js HTTP/1.1[0m" 304 -
+2025-03-07 23:29:44,239 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-03-07 23:29:44,265 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 23:29:44] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
